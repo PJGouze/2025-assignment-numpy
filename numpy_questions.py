@@ -72,10 +72,10 @@ def wallis_product(n_terms):
     # terms in the product. For example 10000.
     pi = 1.0
 
-    for n in range(1, n_terms + 1):
-        if n == 1:
-            pi = 2/1 * 2/3
-        else:
-            pi = pi * (4 * n * n) / (4 * n * n - 1)
+    n = np.arange(1, n_terms + 1)
 
-    return pi * 2
+    factors = (4 * n**2) / (4 * n**2 - 1)
+
+    pi = 2 * np.prod(factors)
+
+    return pi
